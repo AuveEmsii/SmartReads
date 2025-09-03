@@ -1,0 +1,408 @@
+.panelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    height: 100%;
+    min-height: 500px; /* 确保最小高度 */
+}
+
+.subTabs {
+    display: flex;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: var(--spacing-md);
+    flex-shrink: 0; /* 防止压缩 */
+}
+
+.subTab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    flex: 1; /* 平均分配宽度 */
+    min-width: 0; /* 防止flex子项溢出 */
+}
+
+.subTab:hover:not(:disabled) {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, rgba(110,68,255,0.06), rgba(181,108,255,0.06));
+}
+
+.subTab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(110,68,255,0.08), rgba(181,108,255,0.08));
+}
+
+.subTab:disabled {
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.subTab span {
+    transition: transform var(--transition-base) ease;
+    white-space: nowrap; /* 防止文字换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subTab:hover:not(:disabled) span {
+    transform: translateY(-1px);
+}
+
+.subContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    flex: 1;
+    min-height: 0; /* 允许内容收缩 */
+    overflow-y: auto; /* 内容过多时滚动 */
+    padding-bottom: var(--spacing-lg); /* 防止底部内容被覆盖 */
+}
+
+/* 结果块与按钮之间的安全间距，避免覆盖 */
+.splitResult,
+.convertResult,
+.cacheInfo {
+    position: relative;
+    z-index: 1;
+}
+
+/* 按钮容器提升层级，避免被结果卡片遮挡 */
+.buttonRow {
+    position: relative;
+    z-index: 2;
+}
+
+/* 进度条区域与其他模块保持足够间距 */
+.progressSection {
+    margin: var(--spacing-md) 0;
+}
+
+/* 嵌入式进度条区域 */
+.progressSection {
+    padding: var(--spacing-md);
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--glass-border);
+    margin: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-soft-2);
+    flex-shrink: 0; /* 防止压缩 */
+}
+
+.progressText {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    font-weight: 500;
+    /* 确保文本完整显示 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-height: 1.2em; /* 保证足够高度 */
+    line-height: 1.4;
+    padding: 0 var(--spacing-sm); /* 左右留白 */
+}
+
+/* 进度条容器优化 */
+.progressContainer {
+    width: 100%;
+    padding: 0;
+}
+
+/* 转换结果样式 */
+.convertResult {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    border-left: 4px solid var(--primary-color);
+    animation: slideUp 0.3s ease;
+    border: 1px solid var(--glass-border);
+    flex-shrink: 0; /* 防止压缩 */
+}
+
+.convertResult h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 拆分结果样式 */
+.splitResult {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    border-left: 4px solid var(--success-color);
+    animation: slideUp 0.3s ease;
+    border: 1px solid var(--glass-border);
+    flex-shrink: 0; /* 防止压缩 */
+}
+
+.splitResult h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 缓存信息展示 */
+.cacheInfo {
+    padding: var(--spacing-md);
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    border-left: 4px solid var(--info-color);
+    border: 1px solid var(--glass-border);
+}
+
+.cacheInfo h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.resultInfo {
+    margin-bottom: var(--spacing-lg);
+}
+
+.resultInfo p {
+    margin: var(--spacing-xs) 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    /* 确保长文本能正确换行 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.resultInfo strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* 数据源选择器 */
+.sourceSelector {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--glass-border);
+}
+
+.sourceSelector h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sourceOptions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.sourceOption {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    background: var(--surface);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    text-align: center;
+}
+
+.sourceOption:hover:not(.disabled) {
+    border-color: var(--primary-color);
+    background: var(--bg-hover);
+}
+
+.sourceOption.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color-alpha);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sourceOption.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+}
+
+.sourceOption.disabled:hover {
+    border-color: var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.sourceOption .icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.sourceOption .label {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.sourceOption .description {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.sourceOption.disabled .description {
+    color: var(--text-secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .panelContainer {
+        min-height: 400px;
+        gap: var(--spacing-sm);
+    }
+    
+    .subTabs {
+        flex-direction: column;
+    }
+    
+    .subTab {
+        justify-content: center;
+        border-bottom: none;
+        border-right: 2px solid transparent;
+        flex: none; /* 移动端取消flex均分 */
+        padding: var(--spacing-sm);
+    }
+    
+    .subTab.active {
+        border-bottom: none;
+        border-right-color: var(--primary-color);
+    }
+    
+    .convertResult,
+    .splitResult,
+    .cacheInfo {
+        padding: var(--spacing-md);
+    }
+    
+    .subTab span {
+        white-space: normal; /* 移动端允许文字换行 */
+    }
+    
+    .progressSection {
+        padding: var(--spacing-sm);
+        margin: var(--spacing-xs) 0;
+    }
+    
+    .progressText {
+        font-size: 0.8rem;
+        text-align: left; /* 左对齐更好阅读 */
+        line-height: 1.3;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .sourceOptions {
+        flex-direction: column;
+    }
+    
+    .sourceOption {
+        padding: var(--spacing-sm);
+    }
+    
+    .sourceSelector {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .panelContainer {
+        min-height: 350px;
+    }
+    
+    .subTab {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.8rem;
+    }
+    
+    .progressSection {
+        padding: var(--spacing-xs);
+    }
+    
+    .progressText {
+        font-size: 0.75rem;
+        margin-bottom: var(--spacing-xs);
+        min-height: 1em;
+    }
+    
+    .sourceOption .icon {
+        font-size: 1.2rem;
+    }
+    
+    .sourceOption .label {
+        font-size: 0.8rem;
+    }
+    
+    .sourceOption .description {
+        font-size: 0.7rem;
+    }
+}
+
+/* 动画 */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 进度条状态样式 */
+.progressText.processing {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.progressText.completed {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.progressText.error {
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+/* 进度条在不同状态下的样式 */
+.progressSection.processing {
+    border-color: var(--primary-color);
+    background: var(--primary-color-alpha);
+}
+
+.progressSection.completed {
+    border-color: var(--success-color);
+    background: var(--success-color-alpha);
+}
+
+.progressSection.error {
+    border-color: var(--error-color);
+    background: var(--error-color-alpha);
+} 

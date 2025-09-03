@@ -1,0 +1,234 @@
+/* 列表部分样式 - 参考原型图 */
+.listSection {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* 头部行样式 */
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-sm);
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    flex: 1;
+}
+
+/* 全选按钮 */
+.selectAllBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    white-space: nowrap;
+}
+
+.selectAllBtn:hover {
+    background: var(--bg-hover);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.selectAllBtn:active {
+    transform: translateY(1px);
+}
+
+.fileList {
+    max-height: 200px; /* 参考原型图的180px，稍作调整 */
+    overflow-y: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.fileItem {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.fileItem:last-child {
+    border-bottom: none;
+}
+
+.fileItem:hover {
+    background: var(--bg-secondary);
+    /* 移除transform避免抖动 */
+}
+
+.fileItem.selected {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    color: var(--primary-dark);
+    border-left: 4px solid var(--primary-color);
+}
+
+.fileIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.fileItem.selected .fileIcon {
+    color: var(--primary-color);
+}
+
+.fileInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.fileName {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fileItem.selected .fileName {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.fileDetails {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.fileSize,
+.chapterCount,
+.fileSource {
+    padding: 2px 6px;
+    background: var(--bg-hover);
+    border-radius: var(--radius-xs);
+    font-size: 0.7rem;
+}
+
+.fileItem.selected .fileSize,
+.fileItem.selected .chapterCount,
+.fileItem.selected .fileSource {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--primary-color);
+}
+
+.selectIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
+    flex-shrink: 0;
+    transition: all var(--transition-base) ease;
+}
+
+.fileItem.selected .selectIndicator {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 空状态 */
+.emptyState {
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.emptyIcon {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin-bottom: var(--spacing-sm);
+}
+
+.emptyState p {
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.emptyHint {
+    font-size: 0.75rem !important;
+    color: var(--text-secondary) !important;
+}
+
+/* 自定义滚动条 */
+.fileList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fileList::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+.fileList::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.fileList::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .fileList {
+        max-height: 150px;
+    }
+    
+    .fileItem {
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+    
+    .fileIcon {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .fileName {
+        font-size: 0.8rem;
+    }
+    
+    .fileDetails {
+        gap: 4px;
+    }
+    
+    .fileSize,
+    .chapterCount,
+    .fileSource {
+        font-size: 0.65rem;
+        padding: 1px 4px;
+    }
+} 

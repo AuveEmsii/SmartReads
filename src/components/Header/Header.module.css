@@ -1,0 +1,140 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(110,68,255,0.10), rgba(181,108,255,0.10)), var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all var(--transition-base) ease;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--brand-gradient);
+    opacity: .6;
+    pointer-events: none;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: all var(--transition-base) ease;
+}
+
+.logo i {
+    font-size: 1.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 2s infinite;
+}
+
+.logo span {
+    background: var(--text-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.headerActions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btnIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all var(--transition-base) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btnIcon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left var(--transition-base) ease;
+}
+
+.btnIcon:hover::before {
+    left: 100%;
+}
+
+.btnIcon:hover {
+    background: var(--primary-color);
+    color: var(--text-white);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.btnIcon:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.themeToggle {
+    position: relative;
+}
+
+.themeToggle svg {
+    transition: all var(--transition-base) ease;
+}
+
+.themeToggle:hover svg {
+    transform: rotate(180deg);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .logo {
+        font-size: 1.125rem;
+    }
+    
+    .btnIcon {
+        width: 36px;
+        height: 36px;
+    }
+} 

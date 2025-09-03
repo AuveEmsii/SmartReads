@@ -1,0 +1,98 @@
+.navTab {
+    flex: 1;
+    padding: var(--spacing-lg) var(--spacing-md);
+    border: none;
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.navTab.active .icon {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: var(--text-white);
+    background-clip: initial;
+    color: var(--text-white);
+}
+
+.navTab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--brand-gradient);
+    transform: translateX(-50%);
+    transition: width var(--transition-base) ease, opacity var(--transition-base) ease;
+    border-radius: 999px;
+    opacity: 0;
+}
+
+.navTab:hover {
+    background: var(--primary-color-alpha);
+    color: var(--text-primary);
+    transform: translateY(-2px) scale(1.02);
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-soft-2);
+}
+
+.navTab:hover::before {
+    width: 60%;
+    opacity: 1;
+}
+
+.navTab.active {
+    background: var(--brand-gradient);
+    color: var(--text-white);
+    border-color: transparent;
+    box-shadow: var(--shadow-soft);
+}
+
+.navTab.active::before {
+    width: 64%;
+    opacity: 1;
+}
+
+.icon {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+/* 移动端TabButton优化 */
+@media (max-width: 768px) {
+    .navTab {
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: 0.8125rem;
+        gap: 2px;
+    }
+    
+    .icon {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navTab {
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: 0.75rem;
+        gap: 1px;
+    }
+    
+    .icon {
+        font-size: 1rem;
+    }
+} 

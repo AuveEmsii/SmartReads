@@ -1,0 +1,243 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.formGroup label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.formInput {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: all var(--transition-base) ease;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1), var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.formInput:hover {
+    border-color: var(--primary-light);
+}
+
+.formHelp {
+    margin-top: var(--spacing-xs);
+}
+
+.formHelp small {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.apiTestSection {
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.tempValue {
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: color var(--transition-base) ease;
+}
+
+.temperatureContainer {
+    position: relative;
+    width: 100%;
+}
+
+.formRange {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--bg-tertiary) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    position: relative;
+}
+
+.formRange:hover {
+    transform: scaleY(1.2);
+}
+
+.formRange::-webkit-slider-track {
+    height: 10px;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.formRange::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base) ease;
+    border: 3px solid var(--bg-card);
+}
+
+.formRange::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: var(--shadow-glow);
+}
+
+.formRange::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+}
+
+/* Firefox slider styles */
+.formRange::-moz-range-track {
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--bg-tertiary) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+    border: none;
+}
+
+.formRange::-moz-range-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base) ease;
+    border: 3px solid var(--bg-card);
+}
+
+.formRange::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: var(--shadow-glow);
+}
+
+.temperatureLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.tempLabelLeft,
+.tempLabelRight {
+    transition: color var(--transition-base) ease;
+}
+
+.tempLabelLeft:hover,
+.tempLabelRight:hover {
+    color: var(--primary-color);
+}
+
+.settingsActions {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-lg);
+}
+
+.actionGroup {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.settingsStatus {
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--info-color);
+}
+
+.settingsStatus small {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .actionGroup {
+        grid-template-columns: 1fr;
+    }
+    
+    .temperatureLabels {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+    
+    .formInput {
+        padding: 12px 16px;
+        font-size: 16px; /* 防止iOS缩放 */
+    }
+    
+    .formRange::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .formRange::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: var(--spacing-lg);
+    }
+    
+    .form {
+        gap: var(--spacing-md);
+    }
+    
+    .formGroup {
+        gap: var(--spacing-xs);
+    }
+    
+    .formInput {
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+    
+    .apiTestSection {
+        padding-top: var(--spacing-md);
+        margin-top: var(--spacing-md);
+    }
+    
+    .settingsActions {
+        padding-top: var(--spacing-md);
+    }
+} 

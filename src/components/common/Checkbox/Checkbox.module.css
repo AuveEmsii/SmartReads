@@ -1,0 +1,90 @@
+/* Container */
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-secondary);
+}
+.checkbox.disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Sizes - 放大控件，确保更易点按 */
+.sm .control { width: 18px; height: 18px; }
+.md .control { width: 22px; height: 22px; }
+.lg .control { width: 26px; height: 26px; }
+
+/* Input (visually hidden) */
+.input {
+    position: absolute;
+    opacity: 0;
+    width: 0; height: 0;
+}
+
+/* Visual box */
+.control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    transition: all var(--transition-base) ease;
+    box-shadow: var(--shadow-sm), inset 0 1px 2px rgba(30,22,60,0.06);
+}
+
+/* Icons 更大，始终居中 */
+.iconCheck, .iconInd {
+    width: 90%;
+    height: 90%;
+    stroke: white;
+    visibility: hidden;
+    display: block;
+}
+
+/* Checked */
+.input:checked + .control { background: var(--brand-gradient); border-color: transparent; box-shadow: 0 0 0 3px var(--primary-color-alpha), var(--shadow-soft-2); }
+.input:checked + .control .iconCheck { visibility: visible; }
+
+/* Indeterminate */
+.input:not(:checked) + .control .iconInd { visibility: hidden; }
+.input:indeterminate + .control .iconInd { visibility: visible; }
+
+/* Hover/Focus */
+.checkbox:hover .control { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-color-alpha); background: var(--primary-color-alpha); }
+.input:focus + .control { box-shadow: 0 0 0 3px var(--primary-color-alpha); border-color: var(--primary-color); }
+
+/* Label */
+.label { font-size: 0.9rem; color: var(--text-primary); }
+
+/* 移动端Checkbox优化 */
+@media (max-width: 768px) {
+    .checkbox {
+        gap: var(--spacing-sm);
+        min-height: 44px;
+        align-items: center;
+    }
+    
+    .sm .control { width: 20px; height: 20px; }
+    .md .control { width: 24px; height: 24px; }
+    .lg .control { width: 28px; height: 28px; }
+    
+    .label { 
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkbox {
+        min-height: 40px;
+    }
+    
+    .sm .control { width: 18px; height: 18px; }
+    .md .control { width: 22px; height: 22px; }
+    .lg .control { width: 26px; height: 26px; }
+    
+    .label { 
+        font-size: 0.95rem;
+    }
+} 

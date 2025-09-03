@@ -1,0 +1,89 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.formGroup label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.radioItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base) ease;
+    font-weight: 500;
+}
+
+.radioItem:hover {
+    background: var(--bg-secondary);
+}
+
+.radioItem input[type="radio"] {
+    accent-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* 移动端UiSettings优化 */
+@media (max-width: 768px) {
+    .radioGroup {
+        gap: var(--spacing-sm);
+    }
+    
+    .radioItem {
+        padding: var(--spacing-md);
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    .radioItem input[type="radio"] {
+        transform: scale(1.4);
+        margin-right: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        gap: var(--spacing-md);
+    }
+    
+    .formGroup {
+        gap: var(--spacing-xs);
+    }
+    
+    .radioItem {
+        padding: var(--spacing-sm);
+        font-size: 0.95rem;
+        min-height: 40px;
+    }
+    
+    .radioItem input[type="radio"] {
+        transform: scale(1.3);
+    }
+} 

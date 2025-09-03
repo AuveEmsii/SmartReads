@@ -1,0 +1,564 @@
+.contentPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--panel-radius);
+    box-shadow: var(--shadow-soft);
+    margin: var(--spacing-lg);
+    overflow: hidden;
+    min-height: 76vh;
+}
+
+/* 移动端ContentPanel优化 */
+@media (max-width: 768px) {
+    .contentPanel {
+        min-height: 50vh;
+        margin: var(--spacing-sm);
+        border-radius: var(--panel-radius);
+    }
+    
+    .panelHeader {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: flex-start;
+    }
+    
+    .panelHeader h2 {
+        font-size: 1.125rem;
+    }
+    
+    .panelActions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .contentPanel {
+        min-height: 45vh;
+        margin: var(--spacing-xs);
+        border-radius: var(--panel-radius);
+    }
+    
+    .panelHeader {
+        padding: var(--spacing-sm);
+    }
+    
+    .panelHeader h2 {
+        font-size: 1rem;
+    }
+    
+    .actionButton {
+        padding: 6px 10px;
+        font-size: 0.875rem;
+    }
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--glass-border);
+    background: linear-gradient(135deg, rgba(110,68,255,0.06), rgba(181,108,255,0.06)), var(--surface);
+}
+
+.panelHeader h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: 0;
+    color: var(--text-primary);
+    background: var(--text-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.panelActions {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* 卡头按钮组：胶囊 + 悬停品牌渐变 */
+.actionButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft-2);
+    transition: all var(--transition-base) ease;
+}
+
+.actionButton svg {
+    font-size: 0.9rem;
+}
+
+.actionButton:hover {
+    background: var(--brand-gradient);
+    color: var(--text-white);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.actionButton:active {
+    transform: translateY(0);
+}
+
+.actionButton[disabled] {
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    border-color: var(--border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.75;
+}
+
+/* 卡头图标渐变填充 */
+.panelHeader h2 svg {
+    background: var(--text-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Font Awesome 图标特殊处理 - 使用渐变色的近似色 */
+.panelHeader h2 {
+    color: #764ba2; /* 使用渐变中间色作为图标颜色 */
+}
+
+.resultContent {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 空表格状态 - 参考原型图设计 */
+.emptyTable {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.emptyIcon {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, rgba(110,68,255,0.08), rgba(181,108,255,0.08)), var(--surface);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-soft-2);
+    animation: floatY 4s ease-in-out infinite;
+    opacity: 1;
+}
+
+.emptyIcon svg {
+    font-size: 2.4rem;
+    background: var(--icon-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.emptyTable p {
+    margin: var(--spacing-sm) 0;
+    font-size: 1rem;
+}
+
+.emptyTable p:first-of-type {
+    color: var(--text-primary);
+    background: var(--text-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 500;
+}
+
+/* 简化的进度信息 */
+.simpleProgress {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.spinningIcon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+.resultPlaceholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.resultPlaceholder svg {
+    font-size: 4rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.resultPlaceholder p {
+    margin: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+}
+
+.textMuted {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.resultTable {
+    flex: 1;
+    overflow: hidden;
+    padding: var(--spacing-lg);
+}
+
+.tableContainer {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-lg);
+    background: var(--bg-primary);
+}
+
+.analysisTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    table-layout: fixed; /* 固定表格布局，防止跨列 */
+}
+
+.analysisTable th {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+}
+
+.analysisTable th:last-child {
+    border-right: none;
+}
+
+.analysisTable td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    vertical-align: top;
+    /* 关键：确保文字能够正确换行 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+.analysisTable td:last-child {
+    border-right: none;
+}
+
+/* 优化列宽设置，确保文字能够正确换行显示 */
+.analysisTable th:nth-child(1), /* 章节号 */
+.analysisTable td:nth-child(1) {
+    width: 8%;
+    min-width: 50px;
+    text-align: center;
+}
+
+.analysisTable th:nth-child(2), /* 章节标题 */
+.analysisTable td:nth-child(2) {
+    width: 12%;
+    min-width: 100px;
+}
+
+.analysisTable th:nth-child(3), /* 核心剧情梗概 */
+.analysisTable td:nth-child(3) {
+    width: 18%;
+    min-width: 150px;
+}
+
+.analysisTable th:nth-child(4), /* 核心功能/目的 */
+.analysisTable td:nth-child(4) {
+    width: 15%;
+    min-width: 120px;
+}
+
+.analysisTable th:nth-child(5), /* 画面感/镜头序列 */
+.analysisTable td:nth-child(5) {
+    width: 16%;
+    min-width: 140px;
+}
+
+.analysisTable th:nth-child(6), /* 关键情节点 */
+.analysisTable td:nth-child(6) {
+    width: 16%;
+    min-width: 140px;
+}
+
+.analysisTable th:nth-child(7), /* 氛围/情绪 */
+.analysisTable td:nth-child(7) {
+    width: 10%;
+    min-width: 80px;
+}
+
+.analysisTable th:nth-child(8), /* 结尾钩子 */
+.analysisTable td:nth-child(8) {
+    width: 15%;
+    min-width: 120px;
+}
+
+.analysisTable tr:hover {
+    background: var(--bg-hover);
+    transition: background-color 0.2s ease;
+}
+
+.analysisTable tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.analysisTable tbody tr:nth-child(even):hover {
+    background: var(--bg-hover);
+}
+
+.titleCell {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 100px;
+}
+
+.textCell {
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* JSON数组单元格样式 - 参考原型图的标签样式 */
+.jsonArrayCell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    line-height: 1.4;
+}
+
+.arrayItem {
+    display: inline-block;
+    padding: 2px 6px;
+    background: #6366f1;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: normal; /* 允许换行 */
+    word-break: break-word; /* 长单词可以断行 */
+    margin: 1px 0;
+    max-width: 100%; /* 限制最大宽度 */
+    line-height: 1.3;
+}
+
+.arrayItem:nth-child(2n) {
+    background: #8b5cf6;
+}
+
+.arrayItem:nth-child(3n) {
+    background: #06b6d4;
+}
+
+.arrayItem:nth-child(4n) {
+    background: #10b981;
+}
+
+.arrayCell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--primary-color);
+    color: var(--text-white);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    white-space: normal; /* 允许换行 */
+    word-break: break-word; /* 长单词可以断行 */
+    max-width: 100%; /* 限制最大宽度 */
+    line-height: 1.3;
+}
+
+.emotionTag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--secondary-color);
+    color: var(--text-white);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+    line-height: 1.3;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .analysisTable {
+        font-size: 0.75rem;
+    }
+    
+    .analysisTable th,
+    .analysisTable td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.75rem;
+    }
+    
+    /* 中等屏幕上调整最小宽度 */
+    .analysisTable th,
+    .analysisTable td {
+        min-width: 60px;
+    }
+    
+    .analysisTable th:nth-child(1),
+    .analysisTable td:nth-child(1) {
+        min-width: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contentPanel {
+        margin: var(--spacing-md);
+    }
+    
+    .panelHeader {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: stretch;
+    }
+    
+    .panelActions {
+        justify-content: center;
+    }
+    
+    .simpleProgress {
+        padding: var(--spacing-md);
+    }
+    
+    .tableContainer {
+        overflow-x: auto;
+        margin: var(--spacing-md);
+        /* 添加滚动条样式 */
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) var(--bg-secondary);
+    }
+    
+    .tableContainer::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .tableContainer::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+        border-radius: 3px;
+    }
+    
+    .tableContainer::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+    }
+    
+    .analysisTable {
+        min-width: 1000px; /* 确保表格有足够宽度显示所有列 */
+        table-layout: fixed;
+    }
+    
+    .analysisTable th,
+    .analysisTable td {
+        font-size: 0.7rem;
+        padding: var(--spacing-xs);
+    }
+    
+    .jsonArrayCell {
+        max-width: none;
+    }
+    
+    /* 移动端优化：调整列宽 */
+    .analysisTable th:nth-child(1),
+    .analysisTable td:nth-child(1) {
+        width: 6%;
+        min-width: 35px;
+    }
+    
+    .analysisTable th:nth-child(2),
+    .analysisTable td:nth-child(2) {
+        width: 10%;
+        min-width: 80px;
+    }
+    
+    .emptyIcon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .emptyIcon svg {
+        font-size: 1.5rem;
+    }
+}
+
+/* 轻微上下浮动动画（仅装饰） */
+@keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* 桌面端 ≥1200px 的细节优化 */
+@media (min-width: 1200px) {
+    .contentPanel { border-radius: var(--radius-2xl); }
+    .panelHeader { padding: calc(var(--spacing-lg) + 4px); }
+    .emptyIcon { width: 100px; height: 100px; }
+} 

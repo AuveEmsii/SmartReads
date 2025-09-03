@@ -1,0 +1,192 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modalOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modalOverlay.active .modalContainer {
+    transform: scale(1) translateY(0);
+}
+
+.modalContainer {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modalHeader h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modalClose {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.modalContent {
+    flex: 1;
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+}
+
+.settingsTabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.settingsTab {
+    flex: 1;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all var(--transition-base) ease;
+}
+
+.settingsTab:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.settingsTab.active {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: var(--text-white);
+    box-shadow: var(--shadow-glow);
+}
+
+.tabContent {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+/* 移动端SettingsModal优化 */
+@media (max-width: 768px) {
+    .modalContainer {
+        width: 95%;
+        max-width: none;
+        max-height: 90vh;
+        border-radius: var(--radius-lg);
+    }
+    
+    .modalHeader {
+        padding: var(--spacing-lg);
+    }
+    
+    .modalHeader h3 {
+        font-size: 1.125rem;
+    }
+    
+    .modalContent {
+        padding: var(--spacing-lg);
+    }
+    
+    .modalFooter {
+        padding: var(--spacing-lg);
+        gap: var(--spacing-sm);
+    }
+    
+    .settingsTabs {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .settingsTab {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modalContainer {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+    
+    .modalHeader {
+        padding: var(--spacing-md);
+    }
+    
+    .modalHeader h3 {
+        font-size: 1rem;
+    }
+    
+    .modalContent {
+        padding: var(--spacing-md);
+        flex: 1;
+    }
+    
+    .modalFooter {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .modalFooter button {
+        width: 100%;
+    }
+    
+    .modalClose {
+        font-size: 1.125rem;
+    }
+} 

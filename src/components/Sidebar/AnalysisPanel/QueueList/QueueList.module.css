@@ -1,0 +1,101 @@
+/* 列表部分样式 - 参考原型图 */
+.listSection {
+    margin-bottom: var(--spacing-lg);
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.selectAllBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    white-space: nowrap;
+}
+.selectAllBtn:hover {
+    background: var(--bg-hover);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.queueList {
+    max-height: 180px; /* 参考原型图 */
+    overflow-y: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.queueItem {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.queueItem:last-child { border-bottom: none; }
+.queueItem:hover { background: var(--bg-secondary); }
+
+.queueItem.selected {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-left: 4px solid var(--primary-color);
+}
+.queueItem.selected .queueName { color: var(--primary-color); font-weight: 600; }
+
+.btnRemove {
+    padding: var(--spacing-sm);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base) ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+.btnRemove:hover {
+    background: var(--danger-color);
+    color: var(--text-white);
+    transform: scale(1.1);
+}
+
+.emptyQueue { padding: var(--spacing-xl); text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+
+/* 自定义滚动条 */
+.queueList::-webkit-scrollbar { width: 6px; }
+.queueList::-webkit-scrollbar-track { background: var(--bg-secondary); }
+.queueList::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+.queueList::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .queueList { max-height: 120px; }
+} 

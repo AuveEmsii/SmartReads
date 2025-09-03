@@ -1,0 +1,385 @@
+.panelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    height: 100%;
+    width: 100%;
+    min-width: 0; /* 确保容器可以收缩 */
+    box-sizing: border-box;
+    padding-bottom: 24px; /* 添加底部内边距，确保最后元素不紧贴底部 */
+    /* 移除overflow-y: auto，让Sidebar的tabContent处理滚动 */
+}
+
+.folderSection {
+    flex-shrink: 0;
+}
+
+/* 章节文件列表区域 */
+.fileListSection {
+    flex-shrink: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+/* 分析队列区域 */
+.queueSection {
+    flex-shrink: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.buttonGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+    margin-top: var(--spacing-sm);
+    width: 100%;
+    min-width: 0;
+}
+
+.buttonGroup:has(button:only-child) {
+    grid-template-columns: 1fr;
+}
+
+.progressSection {
+    flex-shrink: 0;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    width: calc(100% + 2 * var(--spacing-xl));
+    min-width: 0;
+    margin-left: calc(-1 * var(--spacing-xl));
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+    box-sizing: border-box;
+}
+
+.progressText {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 1.25rem;
+    line-height: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.progressContainer {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* 数据源选择器 */
+.sourceSelector {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sourceSelector h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sourceOptions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.sourceOption {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    text-align: center;
+}
+
+.sourceOption:hover:not(.disabled) {
+    border-color: var(--primary-color);
+    background: var(--bg-hover);
+}
+
+.sourceOption.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color-alpha);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sourceOption.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+}
+
+.sourceOption.disabled:hover {
+    border-color: var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.sourceOption .icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.sourceOption .label {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.sourceOption .description {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.sourceOption.active .description {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* 缓存选择器 */
+.cacheSelector {
+    margin-bottom: var(--spacing-lg);
+}
+
+.cacheSelector h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cacheOption {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+    margin-bottom: var(--spacing-sm);
+}
+
+.cacheOption:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-hover);
+}
+
+.cacheOption.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color-alpha);
+    color: var(--primary-color);
+}
+
+.cacheOption:last-child {
+    margin-bottom: 0;
+}
+
+.cacheInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fileName {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: var(--spacing-sm);
+}
+
+.cacheOption.active .fileName {
+    color: var(--primary-color);
+}
+
+.cacheDetails {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.cacheDetails span {
+    padding: 2px 6px;
+    background: var(--bg-hover);
+    border-radius: var(--radius-xs);
+}
+
+.cacheOption.active .cacheDetails span {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--primary-color);
+}
+
+/* 实时结果预览 */
+.resultsPreview {
+    margin-top: var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--info-color);
+    animation: slideUp 0.3s ease;
+    overflow: hidden;
+    flex-shrink: 0; /* 防止被压缩 */
+    min-height: 60px; /* 确保至少显示标题栏 */
+}
+
+.debugHeader {
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color var(--transition-base) ease;
+    user-select: none;
+}
+
+.debugHeader:hover {
+    background: var(--bg-hover);
+}
+
+.debugHeader h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.debugHeader h4::before {
+    content: "📊";
+    font-size: 1.2em;
+}
+
+.toggleIcon {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    transition: transform var(--transition-base) ease;
+}
+
+.debugHeader:hover .toggleIcon {
+    color: var(--text-primary);
+}
+
+.resultsText {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: var(--spacing-lg);
+    max-height: 250px; /* 减少最大高度，为其他内容留出更多空间 */
+    overflow-y: auto;
+    animation: expandDown 0.3s ease;
+    min-height: 60px; /* 确保有最小高度显示占位符 */
+}
+
+.placeholderText {
+    color: var(--text-muted);
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.placeholderText p {
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.placeholderText ul {
+    margin: var(--spacing-sm) 0 0 0;
+    padding-left: var(--spacing-lg);
+}
+
+.placeholderText li {
+    margin-bottom: var(--spacing-xs);
+}
+
+@keyframes expandDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 250px;
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .panelContainer {
+        gap: var(--spacing-md);
+    }
+    
+    .fileListSection,
+    .queueSection {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .sourceOptions {
+        flex-direction: column;
+    }
+    
+    .sourceOption .icon {
+        font-size: 1.25rem;
+    }
+    
+    .buttonGroup {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .debugHeader {
+        padding: var(--spacing-md);
+    }
+    
+    .resultsText {
+        padding: var(--spacing-md);
+        max-height: 200px;
+    }
+    
+    .resultsPreview {
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* 调试信息底部间距修复 */
+.resultsText {
+    padding-bottom: 24px !important;
+}
+
+.resultsPreview {
+    margin-bottom: 16px;
+}

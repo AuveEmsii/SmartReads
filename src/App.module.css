@@ -1,0 +1,37 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  overflow: hidden;
+}
+
+/* 移动端布局优化 */
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    padding: var(--spacing-xs);
+    gap: var(--spacing-sm);
+  }
+} 
