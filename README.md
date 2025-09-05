@@ -7,7 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/Ggbond626/SmartReads?style=social)](https://github.com/Ggbond626/SmartReads)
 [![GitHub forks](https://img.shields.io/github/forks/Ggbond626/SmartReads?style=social)](https://github.com/Ggbond626/SmartReads)
 [![GitHub issues](https://img.shields.io/github/issues/Ggbond626/SmartReads)](https://github.com/Ggbond626/SmartReads/issues)
-[![License](https://img.shields.io/github/license/Ggbond626/SmartReads)](LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 </div>
 
@@ -160,6 +160,23 @@ src/
 - 建议在安全环境中使用，保护API密钥
 - 分析效果取决于AI模型和文本质量
 - 大文件处理可能需要较长时间
+
+## 📄 许可证
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+本项目采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可证。
+
+**简单说明：**
+- ✅ **可以自由使用** - 个人学习、研究、非商业用途
+- ✅ **可以修改分享** - 可以基于此项目进行修改和分享
+- ❌ **禁止商业使用** - 不得用于任何商业目的
+- 📝 **需要署名** - 使用时需要注明原作者
+- 🔄 **相同许可** - 修改后的作品需要使用相同许可证
+
+查看 [LICENSE](LICENSE) 文件了解完整条款。
+
+**商业使用许可：** 如需商业使用，请联系作者获得授权。
 
 ## 🙏 致谢
 
